@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+}
