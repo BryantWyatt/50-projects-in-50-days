@@ -1,0 +1,34 @@
+{
+    "fields": {
+        "circles": [
+            {
+                "text": "1",
+                "active": true
+            },
+            {
+                "text": "2",
+                "active": false
+            },
+            {
+                "text": "3",
+                "active": false
+            },
+            {
+                "text": "4",
+                "active": false
+            }
+        ],
+        "buttons": {
+            "prev": {
+                "id": "prev",
+                "text": "Prev",
+                "disabled": true
+            },
+            "next": {
+                "id": "next",
+                "text": "Next",
+                "disabled": false
+            }
+        }
+    }
+}
