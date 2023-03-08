@@ -1,7 +1,7 @@
-import Progress from "./Progress";
+import ProgressContainer from "./ProgressContainer";
 
 const App = () => {
-  return <Progress />;
+  return <ProgressContainer />;
 };
 
 export default App;

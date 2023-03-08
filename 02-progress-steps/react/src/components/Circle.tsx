@@ -1,5 +1,4 @@
-import { ICircleProps } from "../interface/ICircleProps";
-import "./Circle.css";
+import { ICircleProps } from "../interface/ICirclesProps";
 
 const Circle = (props: ICircleProps) => {
   const {

@@ -20,12 +20,10 @@
         ],
         "buttons": {
             "prev": {
-                "id": "prev",
                 "text": "Prev",
                 "disabled": true
             },
             "next": {
-                "id": "next",
                 "text": "Next",
                 "disabled": false
             }

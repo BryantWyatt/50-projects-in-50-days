@@ -1,5 +1,5 @@
 import { IButtonProps } from "../interface/IButtonProps";
-import "./Button.css";
+import "../styles/Buttons.css";
 
 const Button = (props: IButtonProps) => {
   const { text, disabled, onClick } = props;
