@@ -1,10 +1,12 @@
-import { ICircle } from "../interface/ICircles";
-import { ICirclesProps } from "../interface/ICirclesProps";
+import { ICircle } from "../types/ICircles";
 import Circle from "./Circle";
 import "../styles/Circles.css";
 
-const Circles = (props: ICirclesProps) => {
-  const { circles } = props;
+export interface ICirclesProps {
+  circles: ICircle[];
+}
+
+const Circles = ({ circles }: ICirclesProps) => {
   return (
     <>
       {circles.map((circle: ICircle, idx: number) => {

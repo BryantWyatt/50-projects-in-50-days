@@ -1,8 +1,21 @@
-import { IProgressProps } from "../interface/IProgressProps";
+import { ReactElement } from "react";
+import { ICircle } from "../types/ICircles";
+import { IButtonProps } from "../components/Button";
 import "../styles/Progress.css";
 
-const Progress = (props: IProgressProps) => {
-  const { circles, progressPercent, prevButton, nextButton } = props;
+export interface IProgressProps {
+  circles: ReactElement<ICircle[]>;
+  progressPercent: number;
+  prevButton: ReactElement<IButtonProps>;
+  nextButton: ReactElement<IButtonProps>;
+}
+
+const Progress = ({
+  circles,
+  progressPercent,
+  prevButton,
+  nextButton,
+}: IProgressProps) => {
   return (
     <div className="container">
       <div className="progress-container">
