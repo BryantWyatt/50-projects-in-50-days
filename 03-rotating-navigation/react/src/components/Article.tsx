@@ -15,7 +15,11 @@ const Article = ({ title, author, sections }: IArticleProps) => {
       {sections.map((section) => {
         return (
           <div>
-            <p>{section.text}</p>
+            {section.text && section.image ? (
+              <h3>{section.text}</h3>
+            ) : (
+              <p>{section.text}</p>
+            )}
             {section?.image ? (
               <img src={section.image} alt={section?.alt}></img>
             ) : (
