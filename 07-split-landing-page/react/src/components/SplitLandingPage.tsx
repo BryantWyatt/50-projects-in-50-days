@@ -1,44 +1,59 @@
-import SplitPanel from "./SplitPanel";
 import "./SplitLandingPage.css";
 import { useState } from "react";
 
+interface IPanel {
+  name: string;
+  mouseOver: boolean;
+}
+
+interface IPanelContent {
+  title: string;
+}
+
 const SplitLandingPage = () => {
-  const [leftPanelIsMouseOver, setLeftPanelIsMouseOver] = useState(false);
-  const [rightPanelIsMouseOver, setRightPanelIsMouseOver] = useState(false);
-  const left = "left";
-  const right = "right";
+  const [leftPanel, setLeftPanel] = useState<IPanel>({
+    name: "left",
+    mouseOver: false,
+  });
 
-  const handleMouseOver = (side: string) => {
-    if (side == left) setLeftPanelIsMouseOver(true);
-    if (side == right) setRightPanelIsMouseOver(true);
-  };
-
-  const handleMouseLeave = (side: string) => {
-    if (side == left) setLeftPanelIsMouseOver(false);
-    if (side == right) setRightPanelIsMouseOver(false);
-  }
+  const [rightPanel, setRightPanel] = useState<IPanel>({
+    name: "right",
+    mouseOver: false,
+  });
 
   return (
     <div
-      className={`container ${leftPanelIsMouseOver ? `hover-${left}` : ""} ${
-        rightPanelIsMouseOver ? `hover-${right}` : ""
-      }`}
+      className={`container ${
+        leftPanel.mouseOver ? `hover-${leftPanel.name}` : ""
+      } ${rightPanel.mouseOver ? `hover-${rightPanel.name}` : ""}`}
     >
-      <SplitPanel
-        title="Playstation 5"
-        side={left}
-        handleMouseOver={() => handleMouseOver(left)}
-        handleMouseLeave={() => handleMouseLeave(left)}
-      />
-      <SplitPanel
-        title="XBox Series X"
-        side={right}
-        handleMouseOver={() => handleMouseOver(right)}
-        handleMouseLeave={() => handleMouseLeave(right)}
-      />
+      <div
+        className={`split ${leftPanel.name}`}
+        onMouseEnter={() => setLeftPanel({ ...leftPanel, mouseOver: true })}
+        onMouseLeave={() => setLeftPanel({ ...leftPanel, mouseOver: false })}
+      >
+        <PanelContent title={"Playstation 5"} />
+      </div>
+      <div
+        className={`split ${rightPanel.name}`}
+        onMouseEnter={() => setRightPanel({ ...rightPanel, mouseOver: true })}
+        onMouseLeave={() => setRightPanel({ ...rightPanel, mouseOver: false })}
+      >
+        <PanelContent title={"Xbox Series X"} />
+      </div>
     </div>
   );
 };
 
+const PanelContent = ({ title }: IPanelContent) => {
+  return (
+    <>
+      <h1>{title}</h1>
+      <a href="#" className="btn">
+        Buy Now
+      </a>
+    </>
+  );
+};
 
 export default SplitLandingPage;
